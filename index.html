@@ -37,7 +37,7 @@
       crossorigin
     />
     <link rel="stylesheet" href="styles.css" />
-    <script>(function(){try{var t={"en":"en/index.html","pt":"pt/index.html"};var s=localStorage.getItem('soul.lang');var w=s||((navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''])).map(function(l){return String(l).slice(0,2).toLowerCase()}).filter(function(l){return l==='es'||t[l]})[0];if(w&&t[w])location.replace(t[w]+location.hash)}catch(e){}})();</script>
+    <script>(function(){try{var t={"en":"en/index.html","pt":"pt/index.html"};var m=location.pathname.match(/\/(en|pt)(\/|\/index\.html)?$/);if(m){location.replace((m[2]==='/'?'index.html':m[1]+'/index.html')+location.hash);return}var s=localStorage.getItem('soul.lang');var w=s||((navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''])).map(function(l){return String(l).slice(0,2).toLowerCase()}).filter(function(l){return l==='es'||t[l]})[0];if(w&&t[w])location.replace(t[w]+location.hash)}catch(e){}})();</script>
   </head>
   <body>
   <div class="orbs" aria-hidden="true"><span></span><span></span><span></span></div>
