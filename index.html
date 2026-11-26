@@ -1,1709 +1,473 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-root="true">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Soul Agent OS · El agente de tu negocio</title>
-    <meta
-      name="description"
-      content="Soul es un agente con su propio computador. Cobra facturas, responde reseñas y prepara tus reportes, y pide permiso antes de actuar. Corre en tu equipo, con el modelo que elijas."
-    />
+    <meta name="description" content="Soul es un agente con su propio computador. Cobra facturas, responde reseñas y prepara tus reportes, y pide permiso antes de actuar. Corre en tu equipo, con el modelo que elijas." />
+    <link rel="canonical" href="https://nachodev10.github.io/soul-agent/" />
+    <link rel="alternate" hreflang="es" href="https://nachodev10.github.io/soul-agent/" />
+    <link rel="alternate" hreflang="en" href="https://nachodev10.github.io/soul-agent/en/" />
+    <link rel="alternate" hreflang="pt" href="https://nachodev10.github.io/soul-agent/pt/" />
+    <link rel="alternate" hreflang="x-default" href="https://nachodev10.github.io/soul-agent/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nachodev10.github.io/soul-agent/" />
     <meta property="og:title" content="Soul Agent OS · El agente de tu negocio" />
-    <meta
-      property="og:description"
-      content="Un agente que hace el trabajo repetitivo de tu negocio y te pide permiso antes de actuar."
-    />
+    <meta property="og:description" content="Un agente que hace el trabajo repetitivo de tu negocio y te pide permiso antes de actuar." />
+    <meta property="og:image" content="https://nachodev10.github.io/soul-agent/apple-touch-icon.png" />
+    <meta property="og:locale" content="es_419" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta name="twitter:card" content="summary" />
     <meta name="theme-color" content="#86b7ea" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <style>
-      @font-face {
-        font-family: 'Geist';
-        src: url('fonts/Geist-Variable.woff2') format('woff2');
-        font-weight: 100 900;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Newsreader';
-        src: url('fonts/Newsreader.woff2') format('woff2');
-        font-weight: 400 500;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Newsreader';
-        src: url('fonts/Newsreader-Italic.woff2') format('woff2');
-        font-weight: 400 500;
-        font-style: italic;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Syne';
-        src: url('fonts/Syne-ExtraBold.woff2') format('woff2');
-        font-weight: 800;
-        font-display: swap;
-      }
-
-      :root {
-        color-scheme: light;
-        --sky-a: #3f83d6;
-        --sky-b: #86b7ea;
-        --sky-c: #dfeaf4;
-        --ink: #1a1b1f;
-        --ink-2: rgba(26, 27, 31, 0.62);
-        --ink-3: rgba(26, 27, 31, 0.4);
-        --ink-inv: #ffffff;
-        --card: rgba(255, 255, 255, 0.58);
-        --card-2: rgba(255, 255, 255, 0.36);
-        --sheet: rgba(250, 251, 254, 0.86);
-        --solid: #ffffff;
-        --hair: rgba(26, 27, 31, 0.1);
-        --bar: rgba(255, 255, 255, 0.76);
-        --on-sky: #1a1b1f;
-        --on-sky-2: rgba(26, 27, 31, 0.64);
-        --ok: #157a53;
-        --shadow: 0 1px 1px rgba(20, 30, 60, 0.04), 0 14px 34px rgba(20, 30, 60, 0.09);
-        --lift: 0 1px 2px rgba(20, 30, 60, 0.1), 0 0 0 1px rgba(26, 27, 31, 0.06);
-        --font-ui: 'Geist', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        --font-serif: 'Newsreader', 'Iowan Old Style', Georgia, serif;
-        --font-logo: 'Syne', 'Geist', 'Helvetica Neue', Arial, sans-serif;
-      }
-      :root[data-theme='dark'] {
-        color-scheme: dark;
-        --ink: #eef0fb;
-        --ink-2: rgba(238, 240, 251, 0.68);
-        --ink-3: rgba(238, 240, 251, 0.44);
-        --ink-inv: #12162c;
-        --card: rgba(18, 24, 54, 0.52);
-        --card-2: rgba(18, 24, 54, 0.34);
-        --sheet: rgba(17, 22, 48, 0.9);
-        --solid: rgba(255, 255, 255, 0.15);
-        --hair: rgba(238, 240, 251, 0.13);
-        --bar: rgba(20, 26, 58, 0.8);
-        --on-sky: #ffffff;
-        --on-sky-2: rgba(255, 255, 255, 0.78);
-        --ok: #62d8a7;
-        --shadow: 0 14px 34px rgba(0, 0, 0, 0.26);
-        --lift: 0 0 0 1px rgba(238, 240, 251, 0.1);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 88px;
-      }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        background: linear-gradient(var(--sky-a), var(--sky-b) 55%, var(--sky-c)) fixed;
-        color: var(--ink);
-        font: 400 16px/1.5 var(--font-ui);
-        letter-spacing: -0.011em;
-        -webkit-font-smoothing: antialiased;
-        transition: background 1.2s ease;
-      }
-      a {
-        color: inherit;
-      }
-      h1,
-      h2,
-      h3,
-      p {
-        margin: 0;
-      }
-      :focus-visible {
-        outline: 2px solid var(--ink);
-        outline-offset: 2px;
-      }
-      .glass {
-        background: var(--card);
-        -webkit-backdrop-filter: blur(26px) saturate(1.25);
-        backdrop-filter: blur(26px) saturate(1.25);
-        box-shadow: var(--shadow);
-      }
-      .glass-2 {
-        background: var(--card-2);
-        -webkit-backdrop-filter: blur(20px) saturate(1.2);
-        backdrop-filter: blur(20px) saturate(1.2);
-      }
-      .wrap {
-        width: min(100% - 32px, 1080px);
-        margin-inline: auto;
-      }
-      .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip: rect(0 0 0 0);
-      }
-
-      .top {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        padding-block: 10px;
-      }
-      .top .wrap {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-      }
-      .brand {
-        display: inline-flex;
-        align-items: baseline;
-        gap: 6px;
-        padding: 11px 18px 12px;
-        border-radius: 999px;
-        background: var(--bar);
-        text-decoration: none;
-        font: 800 19px/1 var(--font-logo);
-        letter-spacing: -0.03em;
-      }
-      .brand em {
-        font: 500 12px/1 var(--font-ui);
-        font-style: normal;
-        letter-spacing: -0.011em;
-        color: var(--ink-2);
-      }
-      .nav {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        padding: 4px;
-        border-radius: 999px;
-        background: var(--bar);
-      }
-      .nav a {
-        padding: 8px 14px;
-        border-radius: 999px;
-        text-decoration: none;
-        color: var(--ink-2);
-        font-weight: 500;
-        font-size: 14.5px;
-        transition:
-          background 0.2s,
-          color 0.2s;
-      }
-      .nav a:hover {
-        color: var(--ink);
-        background: var(--card-2);
-      }
-      .nav a.primary {
-        background: var(--ink);
-        color: var(--ink-inv);
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 13px 22px;
-        border-radius: 999px;
-        font: 500 16px/1 var(--font-ui);
-        letter-spacing: -0.011em;
-        text-decoration: none;
-        border: 0;
-        cursor: pointer;
-        transition:
-          transform 0.15s ease,
-          background 0.2s;
-      }
-      .btn:hover {
-        transform: translateY(-1px);
-      }
-      .btn:active {
-        transform: scale(0.97);
-      }
-      .btn-ink {
-        background: var(--ink);
-        color: var(--ink-inv);
-      }
-      .btn-solid {
-        background: var(--solid);
-        color: var(--ink);
-        box-shadow: var(--lift);
-      }
-      .btn svg {
-        width: 17px;
-        height: 17px;
-        flex: none;
-      }
-
-      .hero {
-        padding-block: 72px 40px;
-        text-align: center;
-      }
-      .eyebrow {
-        display: inline-block;
-        padding: 5px 12px;
-        border-radius: 999px;
-        font-size: 12.5px;
-        font-weight: 500;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--on-sky-2);
-        box-shadow: inset 0 0 0 1px var(--hair);
-      }
-      .hero h1 {
-        margin-top: 22px;
-        font: 400 clamp(44px, 7vw, 76px) / 1.04 var(--font-serif);
-        letter-spacing: -0.02em;
-        color: var(--on-sky);
-      }
-      .hero h1 em {
-        font-style: italic;
-      }
-      .hero .lead {
-        max-width: 620px;
-        margin: 20px auto 0;
-        font-size: clamp(17px, 2vw, 19px);
-        color: var(--on-sky-2);
-      }
-      .cta {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 30px;
-      }
-      .fine {
-        margin-top: 14px;
-        font-size: 13.5px;
-        color: var(--on-sky-2);
-      }
-      .fine a {
-        color: inherit;
-      }
-
-      .demo {
-        max-width: 640px;
-        margin: 48px auto 0;
-        padding: 18px;
-        border-radius: 32px;
-        text-align: left;
-      }
-      .msg {
-        max-width: 86%;
-        padding: 10px 16px;
-        border-radius: 21px;
-        font-size: 15.5px;
-        line-height: 1.38;
-      }
-      .msg + .msg,
-      .msg + .act,
-      .act + .msg {
-        margin-top: 10px;
-      }
-      .msg.me {
-        margin-left: auto;
-        background: var(--card-2);
-      }
-      .msg.soul {
-        background: var(--solid);
-        box-shadow: var(--lift);
-      }
-      .who {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin: 14px 0 8px;
-        font-size: 13px;
-        color: var(--ink-2);
-      }
-      .av {
-        display: grid;
-        place-items: center;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background: var(--ink);
-        color: var(--ink-inv);
-        font: 800 12px/1 var(--font-logo);
-      }
-      .act {
-        padding: 16px;
-        border-radius: 28px;
-        background: var(--solid);
-        box-shadow: var(--lift);
-      }
-      .act p {
-        font-size: 15.5px;
-      }
-      .act .why {
-        margin-top: 6px;
-        font-size: 13.5px;
-        color: var(--ink-2);
-      }
-      .act .draft {
-        margin-top: 12px;
-        padding: 12px 14px;
-        border-radius: 16px;
-        background: var(--card-2);
-        box-shadow: inset 0 0 0 1px var(--hair);
-        font-size: 14.5px;
-        color: var(--ink-2);
-      }
-      .act .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 14px;
-      }
-      .act .btn {
-        padding: 10px 16px;
-        font-size: 14.5px;
-      }
-      .done {
-        display: none;
-        align-items: center;
-        gap: 8px;
-        margin-top: 14px;
-        font-size: 14.5px;
-        color: var(--ok);
-        font-weight: 500;
-      }
-      .act.is-done .row {
-        display: none;
-      }
-      .act.is-done .done {
-        display: flex;
-      }
-
-      section {
-        padding-block: 56px;
-      }
-      .head {
-        max-width: 640px;
-        margin-bottom: 28px;
-      }
-      .head h2 {
-        font: 400 clamp(32px, 4.4vw, 46px) / 1.08 var(--font-serif);
-        letter-spacing: -0.015em;
-        color: var(--on-sky);
-      }
-      .head p {
-        margin-top: 12px;
-        font-size: 17px;
-        color: var(--on-sky-2);
-      }
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-        gap: 14px;
-      }
-      .card {
-        padding: 22px;
-        border-radius: 28px;
-      }
-      .card h3 {
-        font-size: 17px;
-        font-weight: 500;
-        letter-spacing: -0.011em;
-      }
-      .card p {
-        margin-top: 8px;
-        font-size: 15px;
-        color: var(--ink-2);
-      }
-      .card .ic {
-        display: grid;
-        place-items: center;
-        width: 38px;
-        height: 38px;
-        margin-bottom: 14px;
-        border-radius: 50%;
-        background: var(--solid);
-        box-shadow: var(--lift);
-      }
-      .ic svg {
-        width: 18px;
-        height: 18px;
-      }
-      .tag {
-        display: inline-block;
-        margin-bottom: 10px;
-        font-size: 12.5px;
-        font-weight: 500;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--ink-3);
-      }
-
-      .install {
-        padding: 26px;
-        border-radius: 32px;
-      }
-      .seg {
-        display: inline-flex;
-        gap: 2px;
-        padding: 4px;
-        border-radius: 999px;
-        background: var(--card-2);
-        box-shadow: inset 0 0 0 1px var(--hair);
-      }
-      .seg button {
-        padding: 8px 18px;
-        border: 0;
-        border-radius: 999px;
-        background: none;
-        color: var(--ink-2);
-        font: 500 15px/1 var(--font-ui);
-        letter-spacing: -0.011em;
-        cursor: pointer;
-      }
-      .seg button[aria-selected='true'] {
-        background: var(--ink);
-        color: var(--ink-inv);
-      }
-      .steps {
-        display: grid;
-        gap: 12px;
-        margin: 22px 0 0;
-        padding: 0;
-        list-style: none;
-        counter-reset: step;
-      }
-      .steps li {
-        display: grid;
-        grid-template-columns: 34px 1fr;
-        gap: 14px;
-        padding: 16px;
-        border-radius: 21px;
-        counter-increment: step;
-      }
-      .steps li::before {
-        content: counter(step);
-        display: grid;
-        place-items: center;
-        width: 34px;
-        height: 34px;
-        border-radius: 50%;
-        background: var(--ink);
-        color: var(--ink-inv);
-        font-weight: 600;
-        font-size: 14px;
-      }
-      .steps b {
-        display: block;
-        font-weight: 500;
-        font-size: 16.5px;
-      }
-      .steps p {
-        margin-top: 4px;
-        font-size: 15px;
-        color: var(--ink-2);
-      }
-      .steps .btn {
-        margin-top: 12px;
-      }
-      pre {
-        margin: 10px 0 0;
-        padding: 12px 14px;
-        overflow-x: auto;
-        border-radius: 13px;
-        background: var(--card-2);
-        box-shadow: inset 0 0 0 1px var(--hair);
-        font:
-          13.5px/1.6 ui-monospace,
-          'SF Mono',
-          Menlo,
-          monospace;
-        color: var(--ink);
-      }
-      .req {
-        margin-top: 16px;
-        font-size: 13.5px;
-        color: var(--ink-2);
-      }
-      [hidden] {
-        display: none !important;
-      }
-
-      .faq {
-        display: grid;
-        gap: 10px;
-      }
-      details {
-        border-radius: 24px;
-        padding: 4px 20px;
-      }
-      summary {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-        padding-block: 14px;
-        cursor: pointer;
-        list-style: none;
-        font-weight: 500;
-        font-size: 16.5px;
-      }
-      summary::-webkit-details-marker {
-        display: none;
-      }
-      summary::after {
-        content: '+';
-        font-size: 22px;
-        font-weight: 400;
-        color: var(--ink-2);
-        transition: transform 0.2s;
-      }
-      details[open] summary::after {
-        transform: rotate(45deg);
-      }
-      details p {
-        padding-bottom: 16px;
-        font-size: 15.5px;
-        color: var(--ink-2);
-      }
-
-      .closing {
-        padding: 44px 26px;
-        border-radius: 32px;
-        text-align: center;
-      }
-      .closing h2 {
-        font: 400 clamp(30px, 4vw, 42px) / 1.1 var(--font-serif);
-        letter-spacing: -0.015em;
-      }
-      .closing p {
-        margin-top: 10px;
-        color: var(--ink-2);
-      }
-      footer {
-        padding-block: 28px 44px;
-        font-size: 13.5px;
-        color: var(--on-sky-2);
-      }
-      footer .wrap {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 12px;
-      }
-      footer .mark {
-        font: 800 15px/1 var(--font-logo);
-        letter-spacing: -0.03em;
-        color: var(--on-sky);
-      }
-
-      .rise {
-        opacity: 0;
-        transform: translateY(8px);
-        transition:
-          opacity 0.45s ease,
-          transform 0.45s ease;
-      }
-      .rise.in {
-        opacity: 1;
-        transform: none;
-      }
-      @media (max-width: 720px) {
-        .nav a:not(.primary) {
-          display: none;
-        }
-        .hero {
-          padding-top: 44px;
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-          animation: none !important;
-          transition: none !important;
-        }
-        html {
-          scroll-behavior: auto;
-        }
-        .rise {
-          opacity: 1;
-          transform: none;
-        }
-      }
-
-      .orbs {
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        overflow: hidden;
-        pointer-events: none;
-      }
-      .orbs span {
-        position: absolute;
-        width: 46vmax;
-        height: 46vmax;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.42), transparent 62%);
-        filter: blur(30px);
-        animation: drift 38s ease-in-out infinite alternate;
-      }
-      :root[data-theme='dark'] .orbs span {
-        background: radial-gradient(circle, rgba(140, 150, 255, 0.16), transparent 62%);
-      }
-      .orbs span:nth-child(1) {
-        top: -18vmax;
-        left: -12vmax;
-      }
-      .orbs span:nth-child(2) {
-        top: 30vh;
-        right: -20vmax;
-        animation-duration: 46s;
-        animation-delay: -12s;
-      }
-      .orbs span:nth-child(3) {
-        bottom: -24vmax;
-        left: 24vw;
-        animation-duration: 54s;
-        animation-delay: -26s;
-      }
-      @keyframes drift {
-        to {
-          transform: translate3d(9vmax, 6vmax, 0) scale(1.12);
-        }
-      }
-
-      .hero {
-        position: relative;
-      }
-      .hero-grid {
-        position: absolute;
-        inset: -40px -8vw auto;
-        height: 620px;
-        z-index: -1;
-        pointer-events: none;
-        background-image:
-          linear-gradient(var(--hair) 1px, transparent 1px),
-          linear-gradient(90deg, var(--hair) 1px, transparent 1px);
-        background-size: 56px 56px;
-        -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 38%, #000 20%, transparent 75%);
-        mask-image: radial-gradient(ellipse 60% 55% at 50% 38%, #000 20%, transparent 75%);
-        animation: grid-pan 30s linear infinite;
-      }
-      @keyframes grid-pan {
-        to {
-          background-position:
-            0 56px,
-            56px 0;
-        }
-      }
-
-      .split .w {
-        display: inline-block;
-        opacity: 0;
-        filter: blur(10px);
-        transform: translateY(0.35em);
-        animation: word-in 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        animation-delay: calc(var(--i) * 90ms + 120ms);
-      }
-      @keyframes word-in {
-        to {
-          opacity: 1;
-          filter: none;
-          transform: none;
-        }
-      }
-
-      .rotator {
-        display: inline-flex;
-        white-space: nowrap;
-      }
-      .rotator .l {
-        display: inline-block;
-        font-style: italic;
-        background: linear-gradient(
-          100deg,
-          var(--on-sky) 0%,
-          var(--on-sky) 30%,
-          #ffffff 45%,
-          #f3b98f 55%,
-          var(--on-sky) 70%,
-          var(--on-sky) 100%
-        );
-        background-size: 300% 100%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        animation:
-          letter-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both,
-          sheen 6s ease-in-out infinite;
-        animation-delay: calc(var(--i) * 34ms), calc(var(--i) * 60ms);
-      }
-      .rotator .l.out {
-        animation: letter-out 0.35s ease-in both;
-        animation-delay: calc(var(--i) * 18ms);
-      }
-      .rotator .sp {
-        width: 0.26em;
-      }
-      @keyframes letter-in {
-        from {
-          opacity: 0;
-          transform: translateY(0.45em) rotate(6deg);
-          filter: blur(6px);
-        }
-      }
-      @keyframes letter-out {
-        to {
-          opacity: 0;
-          transform: translateY(-0.4em) rotate(-6deg);
-          filter: blur(6px);
-        }
-      }
-      @keyframes sheen {
-        0%,
-        20% {
-          background-position: 100% 0;
-        }
-        60%,
-        100% {
-          background-position: 0 0;
-        }
-      }
-
-      .btn-ink {
-        position: relative;
-        overflow: hidden;
-        isolation: isolate;
-      }
-      .btn-ink::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        background: linear-gradient(
-          110deg,
-          transparent 35%,
-          rgba(255, 255, 255, 0.28) 50%,
-          transparent 65%
-        );
-        background-size: 250% 100%;
-        animation: shimmer 4.5s ease-in-out infinite;
-      }
-      :root[data-theme='dark'] .btn-ink::after {
-        background-image: linear-gradient(
-          110deg,
-          transparent 35%,
-          rgba(18, 22, 44, 0.18) 50%,
-          transparent 65%
-        );
-      }
-      @keyframes shimmer {
-        0%,
-        55% {
-          background-position: 120% 0;
-        }
-        100% {
-          background-position: -60% 0;
-        }
-      }
-
-      .spot {
-        position: relative;
-        isolation: isolate;
-        transition:
-          transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-          box-shadow 0.35s;
-      }
-      .spot::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        border-radius: inherit;
-        background: radial-gradient(
-          420px circle at var(--mx, 50%) var(--my, 50%),
-          rgba(255, 255, 255, 0.55),
-          transparent 42%
-        );
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-      .spot::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        padding: 1px;
-        background: radial-gradient(
-          260px circle at var(--mx, 50%) var(--my, 50%),
-          rgba(255, 255, 255, 0.95),
-          transparent 60%
-        );
-        -webkit-mask:
-          linear-gradient(#000 0 0) content-box,
-          linear-gradient(#000 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        opacity: 0;
-        transition: opacity 0.3s;
-        pointer-events: none;
-      }
-      :root[data-theme='dark'] .spot::before {
-        background: radial-gradient(
-          420px circle at var(--mx, 50%) var(--my, 50%),
-          rgba(160, 175, 255, 0.16),
-          transparent 42%
-        );
-      }
-      .spot:hover {
-        transform: translateY(-3px);
-      }
-      .spot:hover::before,
-      .spot:hover::after {
-        opacity: 1;
-      }
-
-      .statement {
-        padding-block: 40px;
-      }
-      .statement p {
-        max-width: 900px;
-        font: 400 clamp(30px, 4.6vw, 54px) / 1.15 var(--font-serif);
-        letter-spacing: -0.02em;
-        color: var(--on-sky);
-      }
-      .statement .w {
-        opacity: 0.16;
-        transition: opacity 0.25s linear;
-      }
-      .statement .w.lit {
-        opacity: 1;
-      }
-      .statement .w.key {
-        font-style: italic;
-      }
-
-      .marquee {
-        position: relative;
-        overflow: hidden;
-        padding-block: 8px;
-        -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-        mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-      }
-      .marquee-track {
-        display: flex;
-        gap: 10px;
-        width: max-content;
-        animation: marquee 42s linear infinite;
-      }
-      .marquee:hover .marquee-track {
-        animation-play-state: paused;
-      }
-      .marquee.reverse .marquee-track {
-        animation-direction: reverse;
-        animation-duration: 50s;
-      }
-      .chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 16px;
-        border-radius: 999px;
-        background: var(--card);
-        -webkit-backdrop-filter: blur(20px);
-        backdrop-filter: blur(20px);
-        box-shadow: var(--lift);
-        font-size: 15px;
-        font-weight: 500;
-        white-space: nowrap;
-      }
-      .chip::before {
-        content: '';
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--ok);
-        box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 18%, transparent);
-      }
-      @keyframes marquee {
-        to {
-          transform: translateX(calc(-50% - 5px));
-        }
-      }
-
-      .demo .step {
-        opacity: 0;
-        transform: translateY(10px) scale(0.98);
-        transition:
-          opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
-          transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-      }
-      .demo .step.show {
-        opacity: 1;
-        transform: none;
-      }
-      .typing {
-        display: inline-flex;
-        gap: 4px;
-        padding: 12px 16px;
-        border-radius: 21px;
-        background: var(--solid);
-        box-shadow: var(--lift);
-      }
-      .typing i {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--ink-3);
-        animation: bounce 1s ease-in-out infinite;
-      }
-      .typing i:nth-child(2) {
-        animation-delay: 0.15s;
-      }
-      .typing i:nth-child(3) {
-        animation-delay: 0.3s;
-      }
-      @keyframes bounce {
-        50% {
-          transform: translateY(-4px);
-          background: var(--ink);
-        }
-      }
-      .act.is-done {
-        animation: pop 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-      }
-      @keyframes pop {
-        40% {
-          transform: scale(1.015);
-        }
-      }
-
-      .head h2 .w {
-        display: inline-block;
-        opacity: 0;
-        transform: translateY(0.4em);
-        filter: blur(8px);
-        transition:
-          opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
-          transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
-          filter 0.7s;
-        transition-delay: calc(var(--i) * 60ms);
-      }
-      .head.in h2 .w {
-        opacity: 1;
-        transform: none;
-        filter: none;
-      }
-      .grid > .rise {
-        transition-delay: calc(var(--i, 0) * 70ms);
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .split .w,
-        .rotator .l,
-        .head h2 .w,
-        .demo .step {
-          opacity: 1 !important;
-          filter: none !important;
-          transform: none !important;
-        }
-        .statement .w {
-          opacity: 1;
-        }
-        .rotator .l {
-          color: var(--on-sky);
-          background: none;
-        }
-      }
-    </style>
+    <link
+      rel="preload"
+      href="fonts/Geist-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/Newsreader.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script>(function(){try{var t={"en":"en/index.html","pt":"pt/index.html"};var s=localStorage.getItem('soul.lang');var w=s||((navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''])).map(function(l){return String(l).slice(0,2).toLowerCase()}).filter(function(l){return l==='es'||t[l]})[0];if(w&&t[w])location.replace(t[w]+location.hash)}catch(e){}})();</script>
   </head>
   <body>
-    <div class="orbs" aria-hidden="true"><span></span><span></span><span></span></div>
-    <header class="top">
-      <div class="wrap">
-        <a class="brand glass" href="#">soul <em>agent os</em></a>
-        <nav class="nav glass" aria-label="Principal">
-          <a href="#como">Cómo trabaja</a>
-          <a href="#tareas">Qué hace</a>
-          <a href="#preguntas">Preguntas</a>
-          <a href="https://github.com/nachodev10/soul-agent" data-repo>GitHub</a>
-          <a class="primary" href="#instalar">Instalar</a>
-        </nav>
-      </div>
-    </header>
+  <div class="orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand glass" href="#">soul <em>agent os</em></a>
+      <nav class="nav glass" aria-label="Principal">
+        <a href="#como">Cómo trabaja</a>
+        <a href="#tareas">Qué hace</a>
+        <a href="#preguntas">Preguntas</a>
+        <a href="https://github.com/nachodev10/soul-agent" data-repo>GitHub</a>
+        <a class="primary" href="#instalar">Instalar</a>
+      </nav>
+      <nav class="langs glass" aria-label="Idioma"><a href="index.html" hreflang="es" lang="es" data-lang="es" title="Español" aria-current="true">ES</a><a href="en/index.html" hreflang="en" lang="en" data-lang="en" title="English">EN</a><a href="pt/index.html" hreflang="pt" lang="pt" data-lang="pt" title="Português">PT</a></nav>
+    </div>
+  </header>
 
-    <main>
-      <div class="hero wrap">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <span class="eyebrow">Versión preliminar</span>
-        <h1 aria-label="El agente de tu negocio">
-          <span class="split" aria-hidden="true">El agente de</span>
-          <span
-            class="rotator"
+  <main>
+    <div class="hero wrap">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <span class="eyebrow">Versión preliminar</span>
+      <h1 aria-label="El agente de tu negocio">
+        <span class="split" aria-hidden="true">El agente de</span>
+        <span class="rotator" aria-hidden="true" data-words="tu negocio|tu hotel|tu tienda|tu clínica|tu oficina|tu equipo"
+          >tu negocio</span
+        >
+      </h1>
+      <p class="lead">Soul tiene su propio computador. Cobra facturas, responde reseñas y prepara tus reportes. Corre en tu equipo, con el modelo que elijas, y te pide permiso antes de actuar.</p>
+      <div class="cta">
+        <a class="btn btn-ink" href="#instalar">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
             aria-hidden="true"
-            data-words="tu negocio|tu hotel|tu tienda|tu clínica|tu oficina|tu equipo"
-            >tu negocio</span
           >
-        </h1>
-        <p class="lead">
-          Soul tiene su propio computador. Cobra facturas, responde reseñas y prepara tus reportes.
-          Corre en tu equipo, con el modelo que elijas, y te pide permiso antes de actuar.
-        </p>
-        <div class="cta">
-          <a class="btn btn-ink" href="#instalar">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M12 4v11" />
-              <path d="m7 11 5 5 5-5" />
-              <path d="M5 20h14" />
-            </svg>
-            Descargar para Mac
-          </a>
-          <a class="btn btn-solid" href="https://github.com/nachodev10/soul-agent" data-repo>
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="m8 7-5 5 5 5" />
-              <path d="m16 7 5 5-5 5" />
-            </svg>
-            Ver en GitHub
-          </a>
-        </div>
-        <p class="fine">
-          Gratis · Licencia Apache 2.0 ·
-          <a href="#instalar">Todas las formas de instalar</a>
-        </p>
-
-        <div class="demo glass rise" aria-label="Ejemplo de conversación con Soul">
-          <p class="msg me step">¿Qué quedó pendiente de ayer?</p>
-          <div class="who step"><span class="av" aria-hidden="true">s</span> Soul</div>
-          <div class="typing" aria-hidden="true" hidden><i></i><i></i><i></i></div>
-          <p class="msg soul step">
-            Dos cosas. Mandé el recordatorio de la factura 1043 y preparé el reporte de la semana.
-            Falta una que necesita tu toque:
-          </p>
-          <div class="act step" id="demo-action">
-            <p><b>Responder</b> · la reseña de 2 estrellas en Booking.</p>
-            <p class="why">Me detuve porque la reseña tiene 3 estrellas o menos.</p>
-            <p class="draft">
-              «Gracias por avisarnos, Marta. Ya revisamos el aire acondicionado de la habitación 204
-              y queremos invitarla a volver con una noche sin costo.»
-            </p>
-            <div class="row">
-              <button class="btn btn-ink" type="button" data-approve>Responder</button>
-            </div>
-            <p class="done" role="status">
-              <svg
-                viewBox="0 0 24 24"
-                width="16"
-                height="16"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="m5 12 5 5L20 7" />
-              </svg>
-              Respondida en Booking. Quedó en la bitácora.
-            </p>
-          </div>
-        </div>
-        <p class="fine">Ejemplo ilustrativo. Los datos no son reales.</p>
+            <path d="M12 4v11" />
+            <path d="m7 11 5 5 5-5" />
+            <path d="M5 20h14" />
+          </svg>
+          Descargar para Mac
+        </a>
+        <a class="btn btn-solid" href="https://github.com/nachodev10/soul-agent" data-repo>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m8 7-5 5 5 5" />
+            <path d="m16 7 5 5-5 5" />
+          </svg>
+          Ver en GitHub
+        </a>
       </div>
+      <p class="fine">
+        Gratis · Licencia Apache 2.0 ·
+        <a href="#instalar">Todas las formas de instalar</a>
+      </p>
 
-      <section class="statement" aria-label="Cómo trabaja Soul">
-        <div class="wrap">
-          <p data-fill>
-            Soul hace el trabajo *repetitivo,* te trae lo *delicado* listo para aprobar y deja todo
-            en la bitácora. Tú decides *lo que importa.*
+      <div class="demo glass rise" aria-label="Ejemplo de conversación con Soul">
+        <p class="msg me step">¿Qué quedó pendiente de ayer?</p>
+        <div class="who step"><span class="av" aria-hidden="true">s</span> Soul</div>
+        <div class="typing" aria-hidden="true" hidden><i></i><i></i><i></i></div>
+        <p class="msg soul step">Dos cosas. Mandé el recordatorio de la factura 1043 y preparé el reporte de la semana. Falta una que necesita tu toque:</p>
+        <div class="act step" id="demo-action">
+          <p><b>Responder</b> · la reseña de 2 estrellas en Booking.</p>
+          <p class="why">Me detuve porque la reseña tiene 3 estrellas o menos.</p>
+          <p class="draft">«Gracias por avisarnos, Marta. Ya revisamos el aire acondicionado de la habitación 204 y queremos invitarla a volver con una noche sin costo.»</p>
+          <div class="row">
+            <button class="btn btn-ink" type="button" data-approve>Responder</button>
+          </div>
+          <p class="done" role="status">
+            <svg
+              viewBox="0 0 24 24"
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m5 12 5 5L20 7" />
+            </svg>
+            Respondida en Booking. Quedó en la bitácora.
           </p>
         </div>
-      </section>
+      </div>
+      <p class="fine">Ejemplo ilustrativo. Los datos no son reales.</p>
+    </div>
 
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span class="chip">Cobra la factura 1043</span>
+    <section class="statement" aria-label="Cómo trabaja Soul">
+      <div class="wrap">
+        <p data-fill>Soul hace el trabajo *repetitivo,* te trae lo *delicado* listo para aprobar y deja todo en la bitácora. Tú decides *lo que importa.*</p>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track"><span class="chip">Cobra la factura 1043</span>
           <span class="chip">Responde 4 reseñas nuevas</span>
           <span class="chip">Prepara el reporte del lunes</span>
           <span class="chip">Cotiza con 3 proveedores</span>
           <span class="chip">Descarga las cartolas del mes</span>
           <span class="chip">Vigila los precios de la competencia</span>
           <span class="chip">Pasa los pedidos de Slack a tareas</span>
-          <span class="chip">Ordena el papeleo tributario</span>
-        </div>
-      </div>
-      <div class="marquee reverse" aria-hidden="true">
-        <div class="marquee-track">
-          <span class="chip">Resume los correos de la mañana</span>
+          <span class="chip">Ordena el papeleo tributario</span></div>
+    </div>
+    <div class="marquee reverse" aria-hidden="true">
+      <div class="marquee-track"><span class="chip">Resume los correos de la mañana</span>
           <span class="chip">Agenda la reunión con el proveedor</span>
           <span class="chip">Revisa la reserva de la sala</span>
           <span class="chip">Recuerda que Ana lleva la facturación</span>
           <span class="chip">Te avisa cuando cambia un precio</span>
           <span class="chip">Archiva los documentos por nombre</span>
           <span class="chip">Redacta en tu tono</span>
-          <span class="chip">Pide permiso antes de pagar</span>
-        </div>
-      </div>
+          <span class="chip">Pide permiso antes de pagar</span></div>
+    </div>
 
-      <section id="como">
-        <div class="wrap">
-          <div class="head rise">
-            <h2>Trabaja solo. Decides tú.</h2>
-            <p>
-              Hace el trabajo repetitivo y te trae lo delicado listo para aprobar, con un toque.
-            </p>
-          </div>
-          <div class="grid">
-            <article class="card glass rise spot">
-              <span class="ic"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6z" />
-                  <path d="m9 12 2 2 4-4" /></svg
-              ></span>
-              <h3>Pide permiso antes de actuar</h3>
-              <p>
-                Revisa cada acción contra lo que le pediste y tus reglas. Si no está cubierta, te
-                pregunta. Nunca reintenta solo una acción que quedó a medias.
-              </p>
-            </article>
-            <article class="card glass rise spot">
-              <span class="ic"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="4" width="18" height="13" rx="2" />
-                  <path d="M8 21h8" />
-                  <path d="M12 17v4" /></svg
-              ></span>
-              <h3>Tiene su propio computador</h3>
-              <p>
-                Usa un navegador en un computador privado, aparte del tuyo. Puedes mirar lo que hace
-                y tomar el control cuando una página te necesita.
-              </p>
-            </article>
-            <article class="card glass rise spot">
-              <span class="ic"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="4" y="10" width="16" height="11" rx="2" />
-                  <path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg
-              ></span>
-              <h3>Tus claves, en la bóveda</h3>
-              <p>
-                Guarda contraseñas, códigos y tarjetas en una bóveda cifrada. El agente las usa para
-                iniciar sesión, pero nunca las ve.
-              </p>
-            </article>
-            <article class="card glass rise spot">
-              <span class="ic"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M4 5h16v11H8l-4 4z" />
-                  <path d="M8 9h8" />
-                  <path d="M8 12h5" /></svg
-              ></span>
-              <h3>Recuerda lo que le dices</h3>
-              <p>
-                Dile una vez que Ana lleva la facturación y lo recuerda. Puedes ver, editar u
-                olvidar cada nota, junto al mensaje de donde salió.
-              </p>
-            </article>
-            <article class="card glass rise spot">
-              <span class="ic"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 7v5l3 2" /></svg
-              ></span>
-              <h3>Vigila por ti</h3>
-              <p>
-                Pídele que revise los precios de la competencia cada seis horas. Solo te habla
-                cuando algo cambia.
-              </p>
-            </article>
-            <article class="card glass rise spot">
-              <span class="ic"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M21 12a9 9 0 1 1-3.5-7.1" />
-                  <path d="M21 4v5h-5" /></svg
-              ></span>
-              <h3>Una sola conversación</h3>
-              <p>
-                La app, el navegador, WhatsApp y Telegram muestran la misma conversación. Empiezas
-                en el computador y sigues desde el teléfono.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="tareas">
-        <div class="wrap">
-          <div class="head rise">
-            <h2>Pásale lo que te quita la tarde</h2>
-            <p>
-              Trabajos de pestañas, inicios de sesión y formularios. Soul los hace de principio a
-              fin y aprende los pasos para la próxima vez.
-            </p>
-          </div>
-          <div class="grid">
-            <article class="card glass rise spot">
-              <span class="tag">Cobranza</span>
-              <h3>Cobra hasta que paguen</h3>
-              <p>Recordatorios amables. Te pregunta antes de mandar el segundo.</p>
-            </article>
-            <article class="card glass rise spot">
-              <span class="tag">Reputación</span>
-              <h3>Responde cada reseña</h3>
-              <p>Redacta en tu tono y se detiene en las de 3 estrellas o menos.</p>
-            </article>
-            <article class="card glass rise spot">
-              <span class="tag">Reportes</span>
-              <h3>Tus números de la semana</h3>
-              <p>
-                Cada lunes, desde detrás del inicio de sesión hasta tu planilla, con lo que cambió.
-              </p>
-            </article>
-            <article class="card glass rise spot">
-              <span class="tag">Administración</span>
-              <h3>El papeleo de fin de mes</h3>
-              <p>Descarga cartolas y documentos tributarios y los ordena por nombre.</p>
-            </article>
-            <article class="card glass rise spot">
-              <span class="tag">Proveedores</span>
-              <h3>Cotiza y compara</h3>
-              <p>Pide tres cotizaciones y te trae la mejor. Compra solo cuando dices que sí.</p>
-            </article>
-            <article class="card glass rise spot">
-              <span class="tag">Equipo</span>
-              <h3>Pedidos convertidos en tareas</h3>
-              <p>Lo que llega por correo y Slack pasa a tu gestor de tareas, sin duplicados.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="instalar">
-        <div class="wrap">
-          <div class="head rise">
-            <h2>Instálalo en minutos</h2>
-            <p>En tu Mac, o en un servidor propio para que trabaje todo el día.</p>
-          </div>
-          <div class="install glass rise">
-            <div class="seg" role="tablist" aria-label="Forma de instalar">
-              <button
-                type="button"
-                role="tab"
-                aria-selected="true"
-                aria-controls="mac"
-                id="tab-mac"
-              >
-                Mac
-              </button>
-              <button
-                type="button"
-                role="tab"
-                aria-selected="false"
-                aria-controls="server"
-                id="tab-server"
-              >
-                Servidor
-              </button>
-            </div>
-
-            <div id="mac" role="tabpanel" aria-labelledby="tab-mac">
-              <ol class="steps">
-                <li class="glass-2">
-                  <div>
-                    <b>Descarga Soul</b>
-                    <p>
-                      Un archivo de unos 500 MB. La primera vez que lo abres, descarga su computador
-                      privado, de unos 1,7 GB.
-                    </p>
-                    <a
-                      class="btn btn-ink"
-                      href="https://github.com/nachodev10/soul-agent/releases/latest/download/soul-agent-os-arm64.dmg"
-                      data-download
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        aria-hidden="true"
-                      >
-                        <path d="M12 4v11" />
-                        <path d="m7 11 5 5 5-5" />
-                        <path d="M5 20h14" />
-                      </svg>
-                      Descargar para Mac
-                    </a>
-                  </div>
-                </li>
-                <li class="glass-2">
-                  <div>
-                    <b>Ábrelo por primera vez</b>
-                    <p>
-                      Arrastra Soul Agent OS a Aplicaciones y ábrelo. Si macOS muestra un aviso, ve
-                      a Configuración del Sistema → Privacidad y seguridad y elige «Abrir
-                      igualmente». Solo se pide una vez.
-                    </p>
-                  </div>
-                </li>
-                <li class="glass-2">
-                  <div>
-                    <b>Elige su modelo</b>
-                    <p>
-                      Inicia sesión con tu plan de ChatGPT, pega la clave de tu proveedor de IA o
-                      usa un modelo local como Ollama. Después, salúdalo.
-                    </p>
-                  </div>
-                </li>
-              </ol>
-              <p class="req">
-                Necesitas macOS 14 o posterior, en un Mac con chip de Apple, y unos 20 GB libres.
-              </p>
-            </div>
-
-            <div id="server" role="tabpanel" aria-labelledby="tab-server" hidden>
-              <ol class="steps">
-                <li class="glass-2">
-                  <div>
-                    <b>Pide acceso</b>
-                    <p>
-                      La instalación en servidor se entrega a cada negocio. Escríbenos y te damos el
-                      acceso y las instrucciones.
-                    </p>
-                    <a
-                      class="btn btn-ink"
-                      href="https://github.com/nachodev10/soul-agent/issues/new?title=Quiero%20instalar%20Soul%20en%20un%20servidor"
-                    >
-                      Pedir acceso
-                    </a>
-                  </div>
-                </li>
-                <li class="glass-2">
-                  <div>
-                    <b>Prepara el servidor</b>
-                    <p>Necesitas Docker con Compose y unos 8 GB de memoria.</p>
-                  </div>
-                </li>
-                <li class="glass-2">
-                  <div>
-                    <b>Enciéndelo con dos comandos</b>
-                    <p>
-                      Uno genera las claves privadas sin mostrarlas y el otro enciende Soul. Después
-                      abres la dirección del servidor.
-                    </p>
-                  </div>
-                </li>
-              </ol>
-              <p class="req">En un servidor, Soul sigue trabajando aunque apagues tu computador.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="preguntas">
-        <div class="wrap">
-          <div class="head rise">
-            <h2>Respuestas directas</h2>
-          </div>
-          <div class="faq">
-            <details class="glass rise spot">
-              <summary>¿Cuánto cuesta?</summary>
-              <p>
-                Soul es gratis. Pagas solo el modelo de IA que uses, directo a tu proveedor. Un
-                modelo local no tiene costo por consulta. En Uso ves cuánto lleva gastado.
-              </p>
-            </details>
-            <details class="glass rise spot">
-              <summary>¿Qué modelos puedo usar?</summary>
-              <p>
-                Tu plan de ChatGPT, o la clave de OpenAI, Anthropic, Google, OpenRouter y muchos
-                más. También modelos locales con Ollama. Puedes cambiarlo cuando quieras.
-              </p>
-            </details>
-            <details class="glass rise spot">
-              <summary>¿Dónde quedan mis datos?</summary>
-              <p>
-                En el computador o servidor donde corre Soul. Tu proveedor de IA recibe lo que hace
-                falta para cada tarea. Cuando conectas apps como Gmail o Slack, esos datos pasan por
-                el servicio que las conecta.
-              </p>
-            </details>
-            <details class="glass rise spot">
-              <summary>¿Puede equivocarse?</summary>
-              <p>
-                Sí, como cualquier persona nueva en el equipo. Por eso pide permiso para lo que no
-                le autorizaste, trabaja a la vista y deja todo en la bitácora. Puedes detenerlo en
-                cualquier momento.
-              </p>
-            </details>
-            <details class="glass rise spot">
-              <summary>¿Funciona con el computador cerrado?</summary>
-              <p>
-                En tu Mac trabaja mientras la app está abierta o minimizada en la barra de menú. Si
-                la cierras o el Mac se duerme, espera. Para que trabaje todo el día, instálalo en un
-                servidor.
-              </p>
-            </details>
-            <details class="glass rise spot">
-              <summary>¿Necesito saber programar?</summary>
-              <p>
-                No. En el Mac se instala como cualquier app y le hablas como a una persona. Para el
-                servidor te ayudamos.
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="wrap">
-          <div class="closing glass rise">
-            <h2>Dale su primer trabajo</h2>
-            <p>Descárgalo, elige un modelo y pídele lo que te quita más tiempo.</p>
-            <div class="cta">
-              <a class="btn btn-ink" href="#instalar">Instalar Soul</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
+    <section id="como">
       <div class="wrap">
-        <span class="mark">soul</span>
-        <span
-          >Licencia Apache 2.0 ·
-          <a href="https://github.com/nachodev10/soul-agent" data-repo>GitHub</a></span
-        >
+        <div class="head rise">
+          <h2>Trabaja solo. Decides tú.</h2>
+          <p>Hace el trabajo repetitivo y te trae lo delicado listo para aprobar, con un toque.</p>
+        </div>
+        <div class="grid">
+          <article class="card glass rise spot">
+            <span class="ic"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6z" />
+                <path d="m9 12 2 2 4-4" /></svg
+            ></span>
+            <h3>Pide permiso antes de actuar</h3>
+            <p>Revisa cada acción contra lo que le pediste y tus reglas. Si no está cubierta, te pregunta. Nunca reintenta solo una acción que quedó a medias.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="ic"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="13" rx="2" />
+                <path d="M8 21h8" />
+                <path d="M12 17v4" /></svg
+            ></span>
+            <h3>Tiene su propio computador</h3>
+            <p>Usa un navegador en un computador privado, aparte del tuyo. Puedes mirar lo que hace y tomar el control cuando una página te necesita.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="ic"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="4" y="10" width="16" height="11" rx="2" />
+                <path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg
+            ></span>
+            <h3>Tus claves, en la bóveda</h3>
+            <p>Guarda contraseñas, códigos y tarjetas en una bóveda cifrada. El agente las usa para iniciar sesión, pero nunca las ve.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="ic"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 5h16v11H8l-4 4z" />
+                <path d="M8 9h8" />
+                <path d="M8 12h5" /></svg
+            ></span>
+            <h3>Recuerda lo que le dices</h3>
+            <p>Dile una vez que Ana lleva la facturación y lo recuerda. Puedes ver, editar u olvidar cada nota, junto al mensaje de donde salió.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="ic"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" /></svg
+            ></span>
+            <h3>Vigila por ti</h3>
+            <p>Pídele que revise los precios de la competencia cada seis horas. Solo te habla cuando algo cambia.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="ic"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 12a9 9 0 1 1-3.5-7.1" />
+                <path d="M21 4v5h-5" /></svg
+            ></span>
+            <h3>Una sola conversación</h3>
+            <p>La app, el navegador, WhatsApp y Telegram muestran la misma conversación. Empiezas en el computador y sigues desde el teléfono.</p>
+          </article>
+        </div>
       </div>
-    </footer>
+    </section>
 
-    <script>
-      const sky = [
-        [0, '#070b1e', '#141b3f', '#27305c'],
-        [5, '#0b1230', '#1e2a5a', '#3b3f73'],
-        [6.5, '#3f5fae', '#c98fa6', '#f3b98f'],
-        [8, '#4f86cf', '#9fc0e6', '#e9dcd2'],
-        [12, '#3f83d6', '#86b7ea', '#dfeaf4'],
-        [16, '#4a86d2', '#95bde6', '#e6e6e0'],
-        [18.5, '#5677bd', '#b79bc0', '#f0b483'],
-        [19.75, '#3b4a92', '#a8719a', '#ec9670'],
-        [21, '#141c48', '#2f2f66', '#5d4370'],
-        [24, '#070b1e', '#141b3f', '#27305c'],
-      ];
-      const rgb = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
-      const mix = (a, b, t) => {
-        const [x, y] = [rgb(a), rgb(b)];
-        return `rgb(${x.map((v, i) => Math.round(v + (y[i] - v) * t)).join(',')})`;
-      };
-      function paintSky() {
-        const now = new Date();
-        const hour = now.getHours() + now.getMinutes() / 60;
-        const next = sky.findIndex(([h]) => h > hour);
-        const [h0, ...from] = sky[next - 1];
-        const [h1, ...to] = sky[next];
-        const t = (hour - h0) / (h1 - h0);
-        const colors = from.map((c, i) => mix(c, to[i], t));
-        const root = document.documentElement;
-        ['--sky-a', '--sky-b', '--sky-c'].forEach((name, i) =>
-          root.style.setProperty(name, colors[i]),
-        );
-        const [r, g, b] = colors[1].match(/\d+/g).map(Number);
-        const dark = 0.299 * r + 0.587 * g + 0.114 * b < 120;
-        root.dataset.theme = dark ? 'dark' : 'light';
-        document.querySelector('meta[name="theme-color"]').content = colors[1];
-      }
-      paintSky();
-      setInterval(paintSky, 5 * 60 * 1000);
+    <section id="tareas">
+      <div class="wrap">
+        <div class="head rise">
+          <h2>Pásale lo que te quita la tarde</h2>
+          <p>Trabajos de pestañas, inicios de sesión y formularios. Soul los hace de principio a fin y aprende los pasos para la próxima vez.</p>
+        </div>
+        <div class="grid">
+          <article class="card glass rise spot">
+            <span class="tag">Cobranza</span>
+            <h3>Cobra hasta que paguen</h3>
+            <p>Recordatorios amables. Te pregunta antes de mandar el segundo.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="tag">Reputación</span>
+            <h3>Responde cada reseña</h3>
+            <p>Redacta en tu tono y se detiene en las de 3 estrellas o menos.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="tag">Reportes</span>
+            <h3>Tus números de la semana</h3>
+            <p>Cada lunes, desde detrás del inicio de sesión hasta tu planilla, con lo que cambió.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="tag">Administración</span>
+            <h3>El papeleo de fin de mes</h3>
+            <p>Descarga cartolas y documentos tributarios y los ordena por nombre.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="tag">Proveedores</span>
+            <h3>Cotiza y compara</h3>
+            <p>Pide tres cotizaciones y te trae la mejor. Compra solo cuando dices que sí.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="tag">Equipo</span>
+            <h3>Pedidos convertidos en tareas</h3>
+            <p>Lo que llega por correo y Slack pasa a tu gestor de tareas, sin duplicados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      const tabs = document.querySelectorAll('[role="tab"]');
-      tabs.forEach((tab) =>
-        tab.addEventListener('click', () => {
-          tabs.forEach((other) => {
-            const selected = other === tab;
-            other.setAttribute('aria-selected', String(selected));
-            document.getElementById(other.getAttribute('aria-controls')).hidden = !selected;
-          });
-        }),
-      );
+    <section id="instalar">
+      <div class="wrap">
+        <div class="head rise">
+          <h2>Instálalo en minutos</h2>
+          <p>En tu Mac, o en un servidor propio para que trabaje todo el día.</p>
+        </div>
+        <div class="install glass rise">
+          <div class="seg" role="tablist" aria-label="Forma de instalar">
+            <button type="button" role="tab" aria-selected="true" aria-controls="mac" id="tab-mac">
+              Mac
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="server"
+              id="tab-server"
+            >
+              Servidor
+            </button>
+          </div>
 
-      const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+          <div id="mac" role="tabpanel" aria-labelledby="tab-mac">
+            <ol class="steps">
+              <li class="glass-2">
+                <div>
+                  <b>Descarga Soul</b>
+                  <p>Un archivo de unos 500 MB. La primera vez que lo abres, descarga su computador privado, de unos 1,7 GB.</p>
+                  <a class="btn btn-ink" href="https://github.com/nachodev10/soul-agent/releases/latest/download/soul-agent-os-arm64.dmg" data-download>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 4v11" />
+                      <path d="m7 11 5 5 5-5" />
+                      <path d="M5 20h14" />
+                    </svg>
+                    Descargar para Mac
+                  </a>
+                </div>
+              </li>
+              <li class="glass-2">
+                <div>
+                  <b>Ábrelo por primera vez</b>
+                  <p>Arrastra Soul Agent OS a Aplicaciones y ábrelo. Si macOS muestra un aviso, ve a Configuración del Sistema → Privacidad y seguridad y elige «Abrir igualmente». Solo se pide una vez.</p>
+                </div>
+              </li>
+              <li class="glass-2">
+                <div>
+                  <b>Elige su modelo</b>
+                  <p>Inicia sesión con tu plan de ChatGPT, pega la clave de tu proveedor de IA o usa un modelo local como Ollama. Después, salúdalo.</p>
+                </div>
+              </li>
+            </ol>
+            <p class="req">Necesitas macOS 14 o posterior, en un Mac con chip de Apple, y unos 20 GB libres.</p>
+          </div>
 
-      document.querySelectorAll('.split').forEach((element) => {
-        element.innerHTML = element.textContent
-          .trim()
-          .split(/\s+/)
-          .map((word, i) => `<span class="w" style="--i:${i}">${word}</span>`)
-          .join(' ');
-      });
+          <div id="server" role="tabpanel" aria-labelledby="tab-server" hidden>
+            <ol class="steps">
+              <li class="glass-2">
+                <div>
+                  <b>Pide acceso</b>
+                  <p>La instalación en servidor se entrega a cada negocio. Escríbenos y te damos el acceso y las instrucciones.</p>
+                  <a class="btn btn-ink" href="https://github.com/nachodev10/soul-agent/issues/new?title=Quiero%20instalar%20Soul%20en%20un%20servidor"> Pedir acceso </a>
+                </div>
+              </li>
+              <li class="glass-2">
+                <div>
+                  <b>Prepara el servidor</b>
+                  <p>Necesitas Docker con Compose y unos 8 GB de memoria.</p>
+                </div>
+              </li>
+              <li class="glass-2">
+                <div>
+                  <b>Enciéndelo con dos comandos</b>
+                  <p>Uno genera las claves privadas sin mostrarlas y el otro enciende Soul. Después abres la dirección del servidor.</p>
+                </div>
+              </li>
+            </ol>
+            <p class="req">En un servidor, Soul sigue trabajando aunque apagues tu computador.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      const rotator = document.querySelector('.rotator');
-      const letters = (text) =>
-        [...text]
-          .map((char, i) =>
-            char === ' '
-              ? '<span class="l sp"> </span>'
-              : `<span class="l" style="--i:${i}">${char}</span>`,
-          )
-          .join('');
-      rotator.innerHTML = letters(rotator.textContent);
-      if (!still) {
-        const words = rotator.dataset.words.split('|');
-        let index = 0;
-        setInterval(async () => {
-          rotator.querySelectorAll('.l').forEach((l) => l.classList.add('out'));
-          await wait(420);
-          index = (index + 1) % words.length;
-          rotator.innerHTML = letters(words[index]);
-        }, 3200);
-      }
+    <section id="preguntas">
+      <div class="wrap">
+        <div class="head rise">
+          <h2>Respuestas directas</h2>
+        </div>
+        <div class="faq">
+          <details class="glass rise spot">
+            <summary>¿Cuánto cuesta?</summary>
+            <p>Soul es gratis. Pagas solo el modelo de IA que uses, directo a tu proveedor. Un modelo local no tiene costo por consulta. En Uso ves cuánto lleva gastado.</p>
+          </details>
+          <details class="glass rise spot">
+            <summary>¿Qué modelos puedo usar?</summary>
+            <p>Tu plan de ChatGPT, o la clave de OpenAI, Anthropic, Google, OpenRouter y muchos más. También modelos locales con Ollama. Puedes cambiarlo cuando quieras.</p>
+          </details>
+          <details class="glass rise spot">
+            <summary>¿En qué idioma funciona?</summary>
+            <p>Soul te responde en el idioma en que le escribes: español, inglés, portugués y muchos más. Por ahora, los menús de la app están en inglés.</p>
+          </details>
+          <details class="glass rise spot">
+            <summary>¿Dónde quedan mis datos?</summary>
+            <p>En el computador o servidor donde corre Soul. Tu proveedor de IA recibe lo que hace falta para cada tarea. Cuando conectas apps como Gmail o Slack, esos datos pasan por el servicio que las conecta.</p>
+          </details>
+          <details class="glass rise spot">
+            <summary>¿Puede equivocarse?</summary>
+            <p>Sí, como cualquier persona nueva en el equipo. Por eso pide permiso para lo que no le autorizaste, trabaja a la vista y deja todo en la bitácora. Puedes detenerlo en cualquier momento.</p>
+          </details>
+          <details class="glass rise spot">
+            <summary>¿Funciona con el computador cerrado?</summary>
+            <p>En tu Mac trabaja mientras la app está abierta o minimizada en la barra de menú. Si la cierras o el Mac se duerme, espera. Para que trabaje todo el día, instálalo en un servidor.</p>
+          </details>
+          <details class="glass rise spot">
+            <summary>¿Necesito saber programar?</summary>
+            <p>No. En el Mac se instala como cualquier app y le hablas como a una persona. Para el servidor te ayudamos.</p>
+          </details>
+        </div>
+      </div>
+    </section>
 
-      document.querySelectorAll('.head h2').forEach((heading) => {
-        heading.innerHTML = heading.textContent
-          .trim()
-          .split(/\s+/)
-          .map((word, i) => `<span class="w" style="--i:${i}">${word}</span>`)
-          .join(' ');
-      });
-      document
-        .querySelectorAll('.grid')
-        .forEach((grid) =>
-          [...grid.children].forEach((child, i) => child.style.setProperty('--i', i)),
-        );
+    <section>
+      <div class="wrap">
+        <div class="closing glass rise">
+          <h2>Dale su primer trabajo</h2>
+          <p>Descárgalo, elige un modelo y pídele lo que te quita más tiempo.</p>
+          <div class="cta">
+            <a class="btn btn-ink" href="#instalar">Instalar Soul</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-      const fill = document.querySelector('[data-fill]');
-      fill.innerHTML = fill.textContent
-        .trim()
-        .split(/\s+/)
-        .map((word) =>
-          word.startsWith('*') || word.endsWith('*')
-            ? `<span class="w key">${word.replaceAll('*', '')}</span>`
-            : `<span class="w">${word}</span>`,
-        )
-        .join(' ');
-      const fillWords = [...fill.querySelectorAll('.w')];
-      const paintFill = () => {
-        const box = fill.getBoundingClientRect();
-        const progress = Math.min(
-          1,
-          Math.max(0, (innerHeight * 0.82 - box.top) / (box.height + innerHeight * 0.35)),
-        );
-        const lit = Math.round(progress * fillWords.length);
-        fillWords.forEach((word, i) => word.classList.toggle('lit', still || i < lit));
-      };
-      addEventListener('scroll', paintFill, { passive: true });
-      addEventListener('resize', paintFill);
-      paintFill();
+  <footer>
+    <div class="wrap">
+      <span class="mark">soul</span>
+      <span>Licencia Apache 2.0 · <a href="https://github.com/nachodev10/soul-agent" data-repo>GitHub</a></span>
+    </div>
+  </footer>
 
-      document.querySelectorAll('.marquee-track').forEach((track) => {
-        track.innerHTML += track.innerHTML;
-      });
-
-      document.querySelectorAll('.spot').forEach((card) => {
-        card.addEventListener('pointermove', (event) => {
-          const box = card.getBoundingClientRect();
-          card.style.setProperty('--mx', `${event.clientX - box.left}px`);
-          card.style.setProperty('--my', `${event.clientY - box.top}px`);
-        });
-      });
-
-      const demo = document.querySelector('.demo');
-      const action = document.getElementById('demo-action');
-      const typing = demo.querySelector('.typing');
-      const steps = [...demo.querySelectorAll('.step')];
-      let played = false;
-      async function playDemo() {
-        if (played) return;
-        played = true;
-        if (still) return steps.forEach((step) => step.classList.add('show'));
-        const [question, who, answer, card] = steps;
-        await wait(300);
-        question.classList.add('show');
-        await wait(700);
-        who.classList.add('show');
-        typing.hidden = false;
-        await wait(1300);
-        typing.hidden = true;
-        answer.classList.add('show');
-        await wait(900);
-        card.classList.add('show');
-      }
-      action
-        .querySelectorAll('[data-approve]')
-        .forEach((button) =>
-          button.addEventListener('click', () => action.classList.add('is-done')),
-        );
-
-      const observer = new IntersectionObserver(
-        (entries) =>
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('in');
-            if (entry.target === demo) playDemo();
-            observer.unobserve(entry.target);
-          }),
-        { threshold: 0.12 },
-      );
-      document.querySelectorAll('.rise').forEach((element) => observer.observe(element));
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>

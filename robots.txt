@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nachodev10.github.io/soul-agent/sitemap.xml

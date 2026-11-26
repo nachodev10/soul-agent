@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Soul Agent OS · O agente do seu negócio</title>
+    <meta name="description" content="Soul é um agente com o próprio computador. Cobra faturas, responde avaliações e prepara seus relatórios, e pede permissão antes de agir. Roda na sua máquina, com o modelo que você escolher." />
+    <link rel="canonical" href="https://nachodev10.github.io/soul-agent/pt/" />
+    <link rel="alternate" hreflang="es" href="https://nachodev10.github.io/soul-agent/" />
+    <link rel="alternate" hreflang="en" href="https://nachodev10.github.io/soul-agent/en/" />
+    <link rel="alternate" hreflang="pt" href="https://nachodev10.github.io/soul-agent/pt/" />
+    <link rel="alternate" hreflang="x-default" href="https://nachodev10.github.io/soul-agent/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nachodev10.github.io/soul-agent/pt/" />
+    <meta property="og:title" content="Soul Agent OS · O agente do seu negócio" />
+    <meta property="og:description" content="Um agente que faz o trabalho repetitivo do seu negócio e pede permissão antes de agir." />
+    <meta property="og:image" content="https://nachodev10.github.io/soul-agent/apple-touch-icon.png" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale:alternate" content="es_419" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#86b7ea" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <link
+      rel="preload"
+      href="../fonts/Geist-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="../fonts/Newsreader.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    
+  </head>
+  <body>
+  <div class="orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand glass" href="#">soul <em>agent os</em></a>
+      <nav class="nav glass" aria-label="Principal">
+        <a href="#como">Como funciona</a>
+        <a href="#tareas">O que faz</a>
+        <a href="#preguntas">Perguntas</a>
+        <a href="https://github.com/nachodev10/soul-agent" data-repo>GitHub</a>
+        <a class="primary" href="#instalar">Instalar</a>
+      </nav>
+      <nav class="langs glass" aria-label="Idioma"><a href="../index.html" hreflang="es" lang="es" data-lang="es" title="Español">ES</a><a href="../en/index.html" hreflang="en" lang="en" data-lang="en" title="English">EN</a><a href="../pt/index.html" hreflang="pt" lang="pt" data-lang="pt" title="Português" aria-current="true">PT</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero wrap">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <span class="eyebrow">Versão preliminar</span>
+      <h1 aria-label="O agente do seu negócio">
+        <span class="split" aria-hidden="true">O agente do</span>
+        <span class="rotator" aria-hidden="true" data-words="seu negócio|seu hotel|seu comércio|seu consultório|seu escritório|seu time"
+          >seu negócio</span
+        >
+      </h1>
+      <p class="lead">Soul tem o próprio computador. Cobra faturas, responde avaliações e prepara seus relatórios. Roda na sua máquina, com o modelo que você escolher, e pede permissão antes de agir.</p>
+      <div class="cta">
+        <a class="btn btn-ink" href="#instalar">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 4v11" />
+            <path d="m7 11 5 5 5-5" />
+            <path d="M5 20h14" />
+          </svg>
+          Baixar para Mac
+        </a>
+        <a class="btn btn-solid" href="https://github.com/nachodev10/soul-agent" data-repo>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m8 7-5 5 5 5" />
+            <path d="m16 7 5 5-5 5" />
+          </svg>
+          Ver no GitHub
+        </a>
+      </div>
+      <p class="fine">
+        Grátis · Licença Apache 2.0 ·
+        <a href="#instalar">Todas as formas de instalar</a>
+      </p>
+
+      <div class="demo glass rise" aria-label="Exemplo de conversa com o Soul">
+        <p class="msg me step">O que ficou pendente de ontem?</p>
+        <div class="who step"><span class="av" aria-hidden="true">s</span> Soul</div>
+        <div class="typing" aria-hidden="true" hidden><i></i><i></i><i></i></div>
+        <p class="msg soul step">Duas coisas. Enviei o lembrete da fatura 1043 e preparei o relatório da semana. Falta uma que precisa do seu toque:</p>
+        <div class="act step" id="demo-action">
+          <p><b>Responder</b> · a avaliação de 2 estrelas no Booking.</p>
+          <p class="why">Parei porque a avaliação tem 3 estrelas ou menos.</p>
+          <p class="draft">“Obrigado por nos avisar, Marta. Já revisamos o ar-condicionado do quarto 204 e queremos convidar você a voltar com uma noite por nossa conta.”</p>
+          <div class="row">
+            <button class="btn btn-ink" type="button" data-approve>Responder</button>
+          </div>
+          <p class="done" role="status">
+            <svg
+              viewBox="0 0 24 24"
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m5 12 5 5L20 7" />
+            </svg>
+            Respondida no Booking. Ficou registrada no histórico.
+          </p>
+        </div>
+      </div>
+      <p class="fine">Exemplo ilustrativo. Os dados não são reais.</p>
+    </div>
+
+    <section class="statement" aria-label="Como o Soul funciona">
+      <div class="wrap">
+        <p data-fill>Soul faz o trabalho *repetitivo,* traz o que é *delicado* pronto para aprovar e registra tudo no histórico. Você decide *o que importa.*</p>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track"><span class="chip">Cobra a fatura 1043</span>
+          <span class="chip">Responde 4 avaliações novas</span>
+          <span class="chip">Prepara o relatório de segunda</span>
+          <span class="chip">Faz orçamento com 3 fornecedores</span>
+          <span class="chip">Baixa os extratos do mês</span>
+          <span class="chip">Acompanha os preços da concorrência</span>
+          <span class="chip">Transforma pedidos do Slack em tarefas</span>
+          <span class="chip">Organiza a papelada fiscal</span></div>
+    </div>
+    <div class="marquee reverse" aria-hidden="true">
+      <div class="marquee-track"><span class="chip">Resume os e-mails da manhã</span>
+          <span class="chip">Agenda a reunião com o fornecedor</span>
+          <span class="chip">Confere a reserva da sala</span>
+          <span class="chip">Lembra que a Ana cuida do faturamento</span>
+          <span class="chip">Avisa quando um preço muda</span>
+          <span class="chip">Arquiva os documentos pelo nome</span>
+          <span class="chip">Escreve no seu tom</span>
+          <span class="chip">Pede permissão antes de pagar</span></div>
+    </div>
+
+    <section id="como">
+      <div class="wrap">
+        <div class="head rise">
+          <h2>Ele trabalha. Você decide.</h2>
+          <p>Faz o trabalho repetitivo e traz o que é delicado pronto para aprovar, com um toque.</p>
+        </div>
+        <div class="grid">
+          <article class="card glass rise spot">
+            <span class="ic"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6z" />
+                <path d="m9 12 2 2 4-4" /></svg
+            ></span>
+            <h3>Pede permissão antes de agir</h3>
+            <p>Confere cada ação com o que você pediu e com as suas regras. Se não estiver coberta, ele pergunta. Nunca tenta de novo sozinho uma ação que ficou pela metade.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="ic"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="13" rx="2" />
+                <path d="M8 21h8" />
+                <path d="M12 17v4" /></svg
+            ></span>
+            <h3>Tem o próprio computador</h3>
+            <p>Usa um navegador em um computador privado, separado do seu. Você pode ver o que ele faz e assumir o controle quando uma página precisar de você.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="ic"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="4" y="10" width="16" height="11" rx="2" />
+                <path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg
+            ></span>
+            <h3>Suas senhas, no cofre</h3>
+            <p>Senhas, códigos e cartões ficam em um cofre criptografado. O agente os usa para entrar, mas nunca os vê.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="ic"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 5h16v11H8l-4 4z" />
+                <path d="M8 9h8" />
+                <path d="M8 12h5" /></svg
+            ></span>
+            <h3>Lembra do que você diz</h3>
+            <p>Diga uma vez que a Ana cuida do faturamento e ele lembra. Você pode ver, editar ou esquecer cada nota, ao lado da mensagem de onde ela veio.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="ic"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" /></svg
+            ></span>
+            <h3>Fica de olho por você</h3>
+            <p>Peça que ele confira os preços da concorrência a cada seis horas. Ele só fala quando algo muda.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="ic"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 12a9 9 0 1 1-3.5-7.1" />
+                <path d="M21 4v5h-5" /></svg
+            ></span>
+            <h3>Uma só conversa</h3>
+            <p>O app, o navegador, o WhatsApp e o Telegram mostram a mesma conversa. Você começa no computador e continua pelo celular.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tareas">
+      <div class="wrap">
+        <div class="head rise">
+          <h2>Passe para ele o que toma a sua tarde</h2>
+          <p>Trabalhos cheios de abas, logins e formulários. Soul faz do começo ao fim e aprende os passos para a próxima vez.</p>
+        </div>
+        <div class="grid">
+          <article class="card glass rise spot">
+            <span class="tag">Cobrança</span>
+            <h3>Cobra até pagarem</h3>
+            <p>Lembretes gentis. Ele pergunta antes de enviar o segundo.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="tag">Reputação</span>
+            <h3>Responde cada avaliação</h3>
+            <p>Escreve no seu tom e para nas de 3 estrelas ou menos.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="tag">Relatórios</span>
+            <h3>Seus números da semana</h3>
+            <p>Toda segunda-feira, de trás do login até a sua planilha, com o que mudou.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="tag">Administração</span>
+            <h3>A papelada do fim do mês</h3>
+            <p>Baixa extratos e documentos fiscais e os organiza pelo nome.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="tag">Fornecedores</span>
+            <h3>Faz orçamentos e compara</h3>
+            <p>Pede três orçamentos e traz o melhor. Só compra quando você diz que sim.</p>
+          </article>
+          <article class="card glass rise spot">
+            <span class="tag">Equipe</span>
+            <h3>Pedidos viram tarefas</h3>
+            <p>O que chega por e-mail e Slack vai para o seu gerenciador de tarefas, sem duplicados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="instalar">
+      <div class="wrap">
+        <div class="head rise">
+          <h2>Instale em minutos</h2>
+          <p>No seu Mac, ou em um servidor próprio para trabalhar o dia todo.</p>
+        </div>
+        <div class="install glass rise">
+          <div class="seg" role="tablist" aria-label="Forma de instalar">
+            <button type="button" role="tab" aria-selected="true" aria-controls="mac" id="tab-mac">
+              Mac
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="server"
+              id="tab-server"
+            >
+              Servidor
+            </button>
+          </div>
+
+          <div id="mac" role="tabpanel" aria-labelledby="tab-mac">
+            <ol class="steps">
+              <li class="glass-2">
+                <div>
+                  <b>Baixe o Soul</b>
+                  <p>Um arquivo de uns 500 MB. Na primeira vez que você abre, ele baixa o computador privado, de uns 1,7 GB.</p>
+                  <a class="btn btn-ink" href="https://github.com/nachodev10/soul-agent/releases/latest/download/soul-agent-os-arm64.dmg" data-download>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 4v11" />
+                      <path d="m7 11 5 5 5-5" />
+                      <path d="M5 20h14" />
+                    </svg>
+                    Baixar para Mac
+                  </a>
+                </div>
+              </li>
+              <li class="glass-2">
+                <div>
+                  <b>Abra pela primeira vez</b>
+                  <p>Arraste o Soul Agent OS para Aplicativos e abra. Se o macOS mostrar um aviso, vá em Ajustes do Sistema → Privacidade e Segurança e escolha “Abrir Mesmo Assim”. Só é pedido uma vez.</p>
+                </div>
+              </li>
+              <li class="glass-2">
+                <div>
+                  <b>Escolha o modelo</b>
+                  <p>Entre com o seu plano do ChatGPT, cole a chave do seu provedor de IA ou use um modelo local como o Ollama. Depois, diga oi.</p>
+                </div>
+              </li>
+            </ol>
+            <p class="req">Você precisa do macOS 14 ou posterior, em um Mac com chip Apple, e de uns 20 GB livres.</p>
+          </div>
+
+          <div id="server" role="tabpanel" aria-labelledby="tab-server" hidden>
+            <ol class="steps">
+              <li class="glass-2">
+                <div>
+                  <b>Peça acesso</b>
+                  <p>A instalação em servidor é feita para cada negócio. Escreva para nós e enviamos o acesso e as instruções.</p>
+                  <a class="btn btn-ink" href="https://github.com/nachodev10/soul-agent/issues/new?title=Quero%20instalar%20o%20Soul%20em%20um%20servidor"> Pedir acesso </a>
+                </div>
+              </li>
+              <li class="glass-2">
+                <div>
+                  <b>Prepare o servidor</b>
+                  <p>Você precisa de Docker com Compose e de uns 8 GB de memória.</p>
+                </div>
+              </li>
+              <li class="glass-2">
+                <div>
+                  <b>Ligue com dois comandos</b>
+                  <p>Um gera as chaves privadas sem mostrá-las e o outro liga o Soul. Depois, abra o endereço do servidor.</p>
+                </div>
+              </li>
+            </ol>
+            <p class="req">Em um servidor, o Soul continua trabalhando mesmo com o seu computador desligado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="preguntas">
+      <div class="wrap">
+        <div class="head rise">
+          <h2>Respostas diretas</h2>
+        </div>
+        <div class="faq">
+          <details class="glass rise spot">
+            <summary>Quanto custa?</summary>
+            <p>Soul é grátis. Você paga só o modelo de IA que usar, direto ao seu provedor. Um modelo local não tem custo por consulta. Em Uso, você vê quanto já foi gasto.</p>
+          </details>
+          <details class="glass rise spot">
+            <summary>Quais modelos posso usar?</summary>
+            <p>Seu plano do ChatGPT, ou a chave da OpenAI, Anthropic, Google, OpenRouter e muitos outros. Modelos locais pelo Ollama também funcionam. Você pode trocar quando quiser.</p>
+          </details>
+          <details class="glass rise spot">
+            <summary>Em que idioma ele funciona?</summary>
+            <p>Soul responde no idioma em que você escreve: português, espanhol, inglês e muitos outros. Por enquanto, os menus do app estão em inglês.</p>
+          </details>
+          <details class="glass rise spot">
+            <summary>Onde ficam os meus dados?</summary>
+            <p>No computador ou servidor onde o Soul roda. Seu provedor de IA recebe o que cada tarefa precisa. Quando você conecta apps como Gmail ou Slack, esses dados passam pelo serviço que faz a conexão.</p>
+          </details>
+          <details class="glass rise spot">
+            <summary>Ele pode errar?</summary>
+            <p>Sim, como qualquer pessoa nova na equipe. Por isso pede permissão para o que você não autorizou, trabalha à vista e registra tudo no histórico. Você pode pará-lo a qualquer momento.</p>
+          </details>
+          <details class="glass rise spot">
+            <summary>Funciona com o computador fechado?</summary>
+            <p>No Mac, ele trabalha enquanto o app está aberto ou minimizado na barra de menus. Se você fechar o app ou o Mac dormir, ele espera. Para trabalhar o dia todo, instale em um servidor.</p>
+          </details>
+          <details class="glass rise spot">
+            <summary>Preciso saber programar?</summary>
+            <p>Não. No Mac, ele se instala como qualquer app e você fala com ele como com uma pessoa. Com o servidor, a gente ajuda.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="closing glass rise">
+          <h2>Dê o primeiro trabalho para ele</h2>
+          <p>Baixe, escolha um modelo e peça o que mais toma o seu tempo.</p>
+          <div class="cta">
+            <a class="btn btn-ink" href="#instalar">Instalar o Soul</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="mark">soul</span>
+      <span>Licença Apache 2.0 · <a href="https://github.com/nachodev10/soul-agent" data-repo>GitHub</a></span>
+    </div>
+  </footer>
+
+    <script src="../main.js"></script>
+  </body>
+</html>

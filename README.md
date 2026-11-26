@@ -2,6 +2,8 @@
   <img src="apple-touch-icon.png" width="72" alt="" />
 </p>
 
+<p align="center"><b>Español</b> · <a href="README.en.md">English</a> · <a href="README.pt.md">Português</a></p>
+
 <h1 align="center">Soul Agent OS</h1>
 
 <p align="center">
@@ -42,6 +44,8 @@ Necesitas macOS 14 o posterior, en un Mac con chip de Apple, y unos 20 GB libres
 **¿Quieres que trabaje todo el día?** Se puede instalar en un servidor. [Escríbenos](https://github.com/nachodev10/soul-agent/issues/new?title=Quiero%20instalar%20Soul%20en%20un%20servidor) y te damos el acceso.
 
 ## Preguntas frecuentes
+
+**¿En qué idioma funciona?** Soul te responde en el idioma en que le escribes. Por ahora, los menús de la app están en inglés.
 
 **¿Cuánto cuesta?** Soul es gratis. Pagas solo el modelo de IA que uses, directo a tu proveedor. Un modelo local no tiene costo por consulta.
 

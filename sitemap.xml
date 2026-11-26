@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://nachodev10.github.io/soul-agent/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nachodev10.github.io/soul-agent/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nachodev10.github.io/soul-agent/en/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://nachodev10.github.io/soul-agent/pt/" />
+  </url>
+  <url>
+    <loc>https://nachodev10.github.io/soul-agent/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nachodev10.github.io/soul-agent/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nachodev10.github.io/soul-agent/en/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://nachodev10.github.io/soul-agent/pt/" />
+  </url>
+  <url>
+    <loc>https://nachodev10.github.io/soul-agent/pt/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nachodev10.github.io/soul-agent/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nachodev10.github.io/soul-agent/en/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://nachodev10.github.io/soul-agent/pt/" />
+  </url>
+</urlset>
